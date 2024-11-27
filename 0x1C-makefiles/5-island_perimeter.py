@@ -9,6 +9,7 @@ grid is a list of list of integers:
 The function calculates the perimeter of the land zones (1) in the grid.
 """
 
+
 def island_perimeter(grid):
     """
     Returns the perimeter of the island in the grid.
