@@ -2,22 +2,22 @@
 
 # Define variables
 CC = gcc
-SRC = $(wildcard *.c)
-OBJ = $(SRC:.c=.o)
+SRC = $(wildcard * .c)
+OBJ = $(SRC: .c=.o)
 NAME = school
-RM = rm -f
-CFLAGS = -Wall -Werror -Wextra -pedantic
+RM = rm - f
+CFLAGS = -Wall - Werror - Wextra - pedantic
 
 # Default target - builds the executable
 all: $(NAME)
 
 # Rule for creating the executable
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(CC) $(OBJ) - o $(NAMEi)
 
 # Clean up temporary files and the executable
 clean:
-	$(RM) *~ $(NAME)
+	$(RM) * ~ $(NAME)
 
 # Clean up only object files
 oclean:
@@ -30,6 +30,6 @@ fclean: clean oclean
 re: fclean all
 
 # Prevent compilation if m.h is missing
-ifneq ($(wildcard m.h),m.h)
+ifneq($(wildcard m.h), m.h)
 $(error "m.h header file is missing")
 endif
