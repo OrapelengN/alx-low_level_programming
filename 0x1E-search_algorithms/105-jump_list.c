@@ -31,15 +31,16 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		prev = curr;
 		prev_index = curr->index;
 		jump_index = curr->index + step;
-		while (curr->index < jump_index && curr->next != NULL) {
+		while (curr->index < jump_index && curr->next != NULL)
 			curr = curr->next;
-		}
-		printf("Value checked at index [%lu] = [%d]\n", curr->index, curr->n);
-		if(curr->index >= size -1 && curr->n < value)
-			break;
- 		}
 
-	printf("Value found between indexes [%lu] and [%lu]\n", prev_index, curr->index);
+		printf("Value checked at index [%lu] = [%d]\n", curr->index, curr->n);
+		if (curr->index >= size - 1 && curr->n < value)
+			break;
+	}
+
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			prev_index, curr->index);
 
 	while (prev != NULL && prev->index <= curr->index)
 	{
