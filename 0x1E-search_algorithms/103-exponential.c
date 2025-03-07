@@ -50,7 +50,7 @@ int binary_search_range(int *array, size_t low, size_t high, int value)
  * @size: Number of elements in array.
  * @value: Value to search for.
  *
- * Return: The first index where value is located, or -1 if value is not present
+ * Return: The first index where value is located or -1 if value is not present
  * in array or if array is NULL.
  */
 int exponential_search(int *array, size_t size, int value)
@@ -65,7 +65,8 @@ int exponential_search(int *array, size_t size, int value)
 
 	while (bound < size && array[bound] < value)
 	{
-		printf("Value checked array[%lu] = [%d]\n", bound, array[bound]);
+		printf("Value checked array[%lu] = [%d]\n",
+				bound, array[bound]);
 		bound *= 2;
 	}
 
