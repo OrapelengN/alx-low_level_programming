@@ -13,12 +13,11 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
+	size_t step = (size_t)sqrt(size);  /* The block size (step) */
+	size_t prev = 0, i;  /* Declare prev and i here */
+
 	if (array == NULL || size == 0)
 		return (-1);
-
-	size_t step = (size_t)sqrt(size);  /* The block size (step) */
-	size_t prev = 0;
-	size_t i;
 
 	/* Jump forward in the array in steps of size `step` */
 	while (array[step - 1] < value && step < size)
