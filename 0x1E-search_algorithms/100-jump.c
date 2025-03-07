@@ -16,26 +16,27 @@ int jump_search(int *array, size_t size, int value)
 	if (array == NULL || size == 0)
 		return (-1);
 
-	size_t step = sqrt(size);  /* The block size (step) */
+	size_t step = (size_t)sqrt(size);  /* The block size (step) */
 	size_t prev = 0;
+	size_t i;
 
 	/* Jump forward in the array in steps of size `step` */
 	while (array[step - 1] < value && step < size)
 	{
-		printf("Value checked array[%zu] = [%d]\n", step - 1, array[step - 1]);
+		printf("Value checked array[%lu] = [%d]\n", step - 1, array[step - 1]);
 		prev = step;
-		step += sqrt(size);
+		step += (size_t)sqrt(size);
 		if (step > size)
 			step = size;
 	}
 
 	/* Print the block range */
-	printf("Value found between indexes [%zu] and [%zu]\n", prev, step - 1);
+	printf("Value found between indexes [%lu] and [%lu]\n", prev, step - 1);
 
 	/* Perform a linear search within the block */
-	for (size_t i = prev; i < step; i++)
+	for (i = prev; i < step; i++)
 	{
-		printf("Value checked array[%zu] = [%d]\n", i, array[i]);
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 		if (array[i] == value)
 			return (i);
 	}
